@@ -2,6 +2,7 @@ package leetcode
 
 class LeetCode73 {
     companion object {
+        //brute force solution
         fun setZeroes(matrix: Array<IntArray>): Unit {
             val zeroRows = hashSetOf<Int>()
             val zeroCols = hashSetOf<Int>()
@@ -23,16 +24,12 @@ class LeetCode73 {
                     if(zeroRows.contains(i)){
                         matrix[i][j] = 0
                     }
-                }
-            }
-
-            for(i in 0..(n-1)){
-                for(j in 0..(m-1)){
-                    if(zeroCols.contains(i)){
-                        matrix[j][i] = 0
+                    if(zeroCols.contains(j)){
+                        matrix[i][j] = 0
                     }
                 }
             }
+
         }
     }
 }
